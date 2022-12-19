@@ -5,6 +5,18 @@ defineProps({
         default: () => {},
     },
 });
+
+const getClass = (status) => {
+    switch (status) {
+        case 'AVAILABLE':
+            return 'available';
+        case 'OCCUPIED':
+            case 'UNAVAILABLE':
+            return 'unavailable';
+        default:
+            return 'UNKNOWN';
+    }
+};
 </script>
 
 <template>
@@ -26,12 +38,7 @@ defineProps({
         <div class="flex items-center">
             <div
                 class="availability-dot"
-                :class="{
-                    'available': connector.status === 'AVAILABLE',
-                    'unavailable': connector.status === 'OCCUPIED',
-                    'unavailable': connector.status === 'UNAVAILABLE',
-                    'unknown': connector.status === 'UNKNOWN',
-                }"
+                :class="getClass(connector.status)"
             />
 
             <div
