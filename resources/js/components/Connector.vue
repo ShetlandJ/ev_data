@@ -14,7 +14,7 @@ const getClass = (status) => {
             case 'UNAVAILABLE':
             return 'unavailable';
         default:
-            return 'UNKNOWN';
+            return 'unknown';
     }
 };
 </script>
