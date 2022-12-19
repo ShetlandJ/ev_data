@@ -1,4 +1,6 @@
 <script setup>
+import { Link } from '@inertiajs/inertia-vue3';
+
 defineProps({
     connector: {
         type: Object,
@@ -20,7 +22,9 @@ const getClass = (status) => {
 </script>
 
 <template>
-    <div
+
+<!-- link to connector/:id -->
+    <Link
         class="
             p-2
             my-2
@@ -33,6 +37,7 @@ const getClass = (status) => {
             flex
             justify-between
         "
+        :href="`/connector/${connector.id}`"
     >
         <div>{{ connector.station.address_sitename }} ({{connector.connector_id}})</div>
         <div class="flex items-center">
@@ -56,7 +61,7 @@ const getClass = (status) => {
                 Stats
             </div>
         </div>
-    </div>
+    </Link>
 </template>
 
 <style scoped>
