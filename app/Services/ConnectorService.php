@@ -13,9 +13,13 @@ class ConnectorService
 {
     public function getConnector(int $connectorId): StationConnector
     {
-        return StationConnector::where('id', $connectorId)
+        $connector = StationConnector::where('id', $connectorId)
             ->with('station', 'statusChanges')
             ->first();
+
+        $connector->station->fullAddress = $connector->station->fullAddress;
+
+        return $connector;
     }
 
     public function searchConnectors(): array

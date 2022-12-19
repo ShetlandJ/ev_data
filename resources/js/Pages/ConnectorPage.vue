@@ -31,10 +31,10 @@ defineProps({
 
         <Container>
             <div class="dark:text-white">
-                <p class="mb-2 text-xl">Connector page.</p>
+                <p class="mb-2 text-2xl">{{connector.station.fullAddress}}.</p>
 
-                <p class="mb-2">
-                    Connector recent statuses:
+                <p class="mb-2 text-lg">
+                    Connector recent usage:
                 </p>
 
                 <connector-status-list />
