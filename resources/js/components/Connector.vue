@@ -14,9 +14,7 @@ defineProps({
             my-2
             items-center
             leading-none
-            lg:rounded-full
             flex
-            lg:inline-flex
             cursor-pointer
             bg-blue-600
             text-white
