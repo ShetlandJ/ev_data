@@ -25,7 +25,7 @@ class SyncEvData extends Command
     public function handle()
     {
         $this->info('Stating sync...');
-        $this->scraperService->syncChargers();
+        // $this->scraperService->syncChargers();
         $this->info('Sync complete');
 
         $this->info('Stating status sync...');
