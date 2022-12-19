@@ -30,7 +30,7 @@ class ConnectorService
             ->orWhere('stations.address_street', 'like', '%' . $search . '%')
             ->orWhere('stations.address_area', 'like', '%' . $search . '%')
             ->orWhere('stations.address_postcode', 'like', '%' . $search . '%')
-            ->with('station', 'statusChanges')
+            ->with('station')
             ->get();
 
         return $connectors->toArray();

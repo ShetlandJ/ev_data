@@ -16,7 +16,7 @@ class ConnectorController
     {
         $connector = app(ConnectorService::class)->getConnector($connectorId);
 
-        return Inertia::render('Connector', [
+        return Inertia::render('ConnectorPage', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'isLoggedIn' => Auth::check(),

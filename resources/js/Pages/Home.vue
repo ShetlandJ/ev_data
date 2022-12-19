@@ -3,6 +3,7 @@ import { ref, computed, watch } from "vue";
 import { Head, useForm, Link } from "@inertiajs/inertia-vue3";
 import Container from "../components/Container.vue";
 import NavBar from "../components/NavBar.vue";
+import Connector from "../components/Connector.vue";
 import axios from "axios";
 
 // debounce javascript function
@@ -17,6 +18,7 @@ const debounce = (func, timeout = 500) => {
 };
 
 const searchValue = ref("");
+const connectors = ref([]);
 
 const performSearch = debounce(async () => {
     if (searchValue.value?.length > 2) {
@@ -25,7 +27,7 @@ const performSearch = debounce(async () => {
                 search: searchValue.value,
             })
             .then((response) => {
-                console.log(response.data);
+                connectors.value = response.data;
             })
             .catch((error) => {
                 console.log(error);
@@ -58,7 +60,6 @@ watch(searchValue, performSearch);
 
                 <p class="mb-2">Description...</p>
 
-                <!-- hot search bar called Search stations -->
                 <div class="mb-2">
                     <input
                         v-model="searchValue"
@@ -77,6 +78,15 @@ watch(searchValue, performSearch);
                             focus:border-transparent
                         "
                     />
+                </div>
+
+                <div class="mb-2">
+                    <div
+                        v-for="connector in connectors"
+                        :key="connector.id"
+                    >
+                        <connector :connector="connector" />
+                    </div>
                 </div>
             </div>
         </Container>
