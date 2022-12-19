@@ -70,7 +70,7 @@ defineProps({
     border-radius: 50%;
 }
 
-.unavaliable {
+.unavailable {
     background-color: #DB4325;
 }
 
