@@ -1,5 +1,5 @@
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from "@inertiajs/inertia-vue3";
 
 defineProps({
     connector: {
@@ -10,20 +10,18 @@ defineProps({
 
 const getClass = (status) => {
     switch (status) {
-        case 'AVAILABLE':
-            return 'available';
-        case 'OCCUPIED':
-            case 'UNAVAILABLE':
-            return 'unavailable';
+        case "AVAILABLE":
+            return "available";
+        case "OCCUPIED":
+        case "UNAVAILABLE":
+            return "unavailable";
         default:
-            return 'unknown';
+            return "unknown";
     }
 };
 </script>
 
 <template>
-
-<!-- link to connector/:id -->
     <Link
         class="
             p-2
@@ -39,12 +37,13 @@ const getClass = (status) => {
         "
         :href="`/connector/${connector.id}`"
     >
-        <div>{{ connector.station.address_sitename }} ({{connector.connector_id}})</div>
+        <div>
+            {{ connector.station.address_sitename }} ({{
+                connector.connector_id
+            }})
+        </div>
         <div class="flex items-center">
-            <div
-                class="availability-dot"
-                :class="getClass(connector.status)"
-            />
+            <div class="availability-dot" :class="getClass(connector.status)" />
 
             <div
                 class="text-2xl ml-4 text-white"
@@ -55,11 +54,7 @@ const getClass = (status) => {
                 <strong>£</strong>
             </div>
 
-            <div
-                class="align-items-center ml-4 underline"
-            >
-                Stats
-            </div>
+            <div class="align-items-center ml-4 underline">Stats</div>
         </div>
     </Link>
 </template>
@@ -81,11 +76,11 @@ const getClass = (status) => {
 }
 
 .unavailable {
-    background-color: #DB4325;
+    background-color: #db4325;
 }
 
 .available {
-    background-color: #57C4AD;
+    background-color: #57c4ad;
 }
 
 .unknown {
