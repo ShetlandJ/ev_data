@@ -76,6 +76,7 @@ watch(searchValue, performSearch);
                             focus:ring-2
                             focus:ring-blue-600
                             focus:border-transparent
+                            text-black
                         "
                     />
                 </div>
