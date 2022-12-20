@@ -18,5 +18,8 @@ use App\Http\Controllers\Home\ConnectorController;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
+Route::get('/search/{term}', [HomeController::class, 'search'])
+    ->name('search');
+
 Route::get('/connector/{id}', [ConnectorController::class, 'view'])
     ->name('connector');

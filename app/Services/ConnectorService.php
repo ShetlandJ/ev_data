@@ -22,10 +22,10 @@ class ConnectorService
         return $connector;
     }
 
-    public function searchConnectors(): array
+    public function searchConnectors(?string $searchTerm = null): array
     {
         // get search from request
-        $search = request()->search;
+        $search = $searchTerm ?? request()->search;
 
         $connectors = StationConnector::select('station_connectors.*')
             ->join('stations', 'stations.id', '=', 'station_connectors.station_id')
