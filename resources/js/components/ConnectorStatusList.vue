@@ -12,6 +12,7 @@ const getClass = (status) => {
         case "AVAILABLE":
             return "available";
         case "OCCUPIED":
+            return "occupied";
         case "UNAVAILABLE":
             return "unavailable";
         default:
@@ -29,18 +30,18 @@ const connector = usePage().props.value.connector;
 
             <div class="mr-2 flex items-center">
                 <div
-                    class="availability-dot mr-2"
+                    class="availability-dot"
                     :class="getClass(stateChange.old_status)"
                 />
-                {{ capitalize(stateChange.old_status) }}
+                <!-- {{ capitalize(stateChange.old_status) }} -->
             </div>
-            <div>TO</div>
+            <div>-></div>
             <div class="ml-2 flex items-center">
                 <div
-                    class="availability-dot mr-2"
+                    class="availability-dot"
                     :class="getClass(stateChange.new_status)"
                 />
-                {{ capitalize(stateChange.new_status) }}
+                <!-- {{ capitalize(stateChange.new_status) }} -->
             </div>
         </div>
     </div>
@@ -56,6 +57,10 @@ const connector = usePage().props.value.connector;
 
 .unavailable {
     background-color: #db4325;
+}
+
+.occupied {
+    background-color: #f7b731;
 }
 
 .available {
