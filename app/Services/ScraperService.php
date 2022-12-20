@@ -92,6 +92,10 @@ class ScraperService
         $json = $response->getBody();
         $data = json_decode($json, true);
 
+        if (!isset($data['chargePoints'])) {
+            return $response;
+        }
+
         foreach ($data['chargePoints'] as $dataChargePoint) {
             $chargePointData = $dataChargePoint['chargePoint'];
 
