@@ -33,11 +33,34 @@ defineProps({
             <div class="dark:text-white">
                 <p class="mb-2 text-2xl">{{connector.station.fullAddress}}.</p>
 
+                <div v-if="connector.station.tariff_amount">
+                    £{{connector.station.tariff_amount}} per kWh
+                </div>
+
+                <template v-if="connector.status_changes.length > 0">
                 <p class="mb-2 text-lg">
                     Connector recent usage:
                 </p>
 
                 <connector-status-list />
+                </template>
+                <!-- v-else show info alert that no status changes were found -->
+                <div
+                    v-else
+                    class="mt-3 bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md"
+                    role="alert"
+                >
+                    <div class="flex">
+                        <div>
+                            <p class="font-bold">No usage history found</p>
+                            <p class="text-sm">
+                                We have do not have usage history for this
+                                connector available at the moment, sorry.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </Container>
     </div>
