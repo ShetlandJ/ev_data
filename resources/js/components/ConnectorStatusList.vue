@@ -24,8 +24,11 @@ const connector = usePage().props.value.connector;
 </script>
 
 <template>
-    <div v-for="stateChange in connector.status_changes" :key="stateChange.id">
-        <div class="flex">
+    <div v-for="(stateChange, index) in connector.status_changes" :key="stateChange.id">
+        <div
+        class="flex"
+            :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-100'"
+        >
             <div class="mr-3">{{ formatDateTime(stateChange.created_at) }}</div>
 
             <div class="mr-2 flex items-center">
@@ -33,7 +36,6 @@ const connector = usePage().props.value.connector;
                     class="availability-dot"
                     :class="getClass(stateChange.old_status)"
                 />
-                <!-- {{ capitalize(stateChange.old_status) }} -->
             </div>
             <div>-></div>
             <div class="ml-2 flex items-center">
@@ -41,7 +43,6 @@ const connector = usePage().props.value.connector;
                     class="availability-dot"
                     :class="getClass(stateChange.new_status)"
                 />
-                <!-- {{ capitalize(stateChange.new_status) }} -->
             </div>
         </div>
     </div>
