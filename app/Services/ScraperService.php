@@ -80,13 +80,14 @@ class ScraperService
         return true;
     }
 
-    public function getChargerStatuses(): Response
+    public function getChargerStatuses(int $chargePointId): Response
     {
         $url = 'https://account.chargeplacescotland.org/api/v2/poi/chargepoint/dynamic';
         $apiKey = 'c3VwcG9ydCtjcHNhcHBAdmVyc2FudHVzLmNvLnVrOmt5YlRYJkZPJCEzcVBOJHlhMVgj';
 
         $response = Http::withHeaders([
             'api-auth' => $apiKey,
+            'chargePointIds' => $chargePointId,
         ])->get($url);
 
         $json = $response->getBody();
