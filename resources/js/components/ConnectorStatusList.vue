@@ -37,7 +37,7 @@ const connector = usePage().props.value.connector;
                     :class="getClass(stateChange.old_status)"
                 />
             </div>
-            <div>-></div>
+            <div class="dark:text-black">-></div>
             <div class="ml-2 flex items-center">
                 <div
                     class="availability-dot"
