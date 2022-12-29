@@ -5,6 +5,7 @@ import Container from "../components/Container.vue";
 import NavBar from "../components/NavBar.vue";
 import Connector from "../components/Connector.vue";
 import axios from "axios";
+import { Inertia } from "@inertiajs/inertia";
 
 // debounce javascript function
 const debounce = (func, timeout = 500) => {
@@ -27,22 +28,13 @@ defineProps({
 const searchValue = ref("");
 // const connectors = ref([]);
 
-// const performSearch = debounce(async () => {
-//     if (searchValue.value?.length > 2) {
-//         await axios
-//             .post("/api/search", {
-//                 search: searchValue.value,
-//             })
-//             .then((response) => {
-//                 connectors.value = response.data;
-//             })
-//             .catch((error) => {
-//                 console.log(error);
-//             });
-//     }
-// });
 
-// watch(searchValue, performSearch);
+const performSearch = debounce(async () => {
+    Inertia.get(`/search/${searchValue.value}`);
+});
+
+
+watch(searchValue, performSearch);
 </script>
 
 <template>
