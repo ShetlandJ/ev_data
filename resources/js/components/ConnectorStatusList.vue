@@ -29,7 +29,7 @@ const connector = usePage().props.value.connector;
         class="flex"
             :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-100'"
         >
-            <div class="mr-3">{{ formatDateTime(stateChange.created_at) }}</div>
+            <div class="mr-3 dark:text-black text-black">{{ formatDateTime(stateChange.created_at) }}</div>
 
             <div class="mr-2 flex items-center">
                 <div
@@ -37,7 +37,7 @@ const connector = usePage().props.value.connector;
                     :class="getClass(stateChange.old_status)"
                 />
             </div>
-            <div>-></div>
+            <div class="dark:text-black text-black">-></div>
             <div class="ml-2 flex items-center">
                 <div
                     class="availability-dot"
