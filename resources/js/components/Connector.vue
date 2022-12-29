@@ -43,6 +43,8 @@ const getClass = (status) => {
             }})
         </div>
         <div class="flex items-center">
+            <span class="mr-3">{{ connector.status_changes.length }}</span>
+
             <div class="availability-dot" :class="getClass(connector.status)" />
 
             <div
