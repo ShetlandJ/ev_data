@@ -55,9 +55,9 @@ watch(searchValue, performSearch);
 
         <Container>
             <div class="dark:text-white">
-                <p class="mb-2 text-xl">Welcome to some page.</p>
+                <p class="mb-2 text-xl">Shetland connector data.</p>
 
-                <p class="mb-2">Description...</p>
+                <!-- <p class="mb-2">Description...</p> -->
 
                 <div class="mb-2">
                     <input
